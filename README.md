@@ -26,7 +26,7 @@ You will also need [pip](http://pypi.python.org/pypi/pip). Depending on your ver
 
 ## 2. Installation
 
-    $ git clone git://github.com/retspen/webvirtmgr.git
+    $ git clone git://github.com/vpetersson/webvirtmgr.git
     $ cd webvirtmgr
     $ pip install -r requirements.txt
     $ ./manage.py syncdb
@@ -53,7 +53,5 @@ To run the application in production, it is recommended to use [Supervisor](http
 
 ## 5. Update
 
-    $ cd /path to/webvirtmgr
+    $ cd /path/to/webvirtmgr
     $ git pull
-
-Support: support@webvirtmgr.net
