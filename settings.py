@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.admin',
     'webvirtmgr.polls',
+    'gunicorn',
 )
 LOGGING = {
     'version': 1,

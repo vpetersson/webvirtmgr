@@ -4,3 +4,4 @@ webvirtmgr.db
 ._*
 develop.py
 settings_dev.py
+*.swp

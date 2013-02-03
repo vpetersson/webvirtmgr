@@ -1,4 +1,4 @@
-# Applince WebVirtMgr
+# Appliance WebVirtMgr
 
 ## 1. Introduction
 
@@ -12,33 +12,23 @@ The application logic is written in Python & Django. The LIBVIRT Python bindings
 
 WebVirtMgr is licensed under the Apache Licence, Version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html).
 
+## 1. Dependencies
+
+### Fedora, RedHat and CentOS
+
+    $ su -c 'yum -y install git'
+
+You will also need [pip](http://pypi.python.org/pypi/pip). Depending on your version, these instructions differ.
+
+### Ubuntu and Debian
+
+    $ sudo apt-get install git python-pip
+
 ## 2. Installation
 
-### Fedora 17 and above
-
-Run:
-
-    $ su -c 'yum -y install git Django python-virtinst httpd mod_python mod_wsgi'
-
-### Ubuntu 12.04 and above
-
-Run:
-
-    $ sudo apt-get install git python-django virtinst apache2 libapache2-mod-python libapache2-mod-wsgi
-
-### CentOS 6.2, RedHat 6.2 and above
-
-Run:
-
-    $ su -c 'rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm'
-    $ su -c 'yum -y install git python-virtinst httpd mod_python mod_wsgi Django'
-
-## 3. Setup
-
-Run: 
-    
     $ git clone git://github.com/retspen/webvirtmgr.git
     $ cd webvirtmgr
+    $ pip install -r requirements.txt
     $ ./manage.py syncdb
 
 Enter the user information:
@@ -53,52 +43,13 @@ Enter the user information:
 
 Run app for test:
 
-    $ ./manage.py runserver x.x.x.x:8000 (x.x.x.x - your IP address server)
-    
+    $ python manage.py run_gunicorn
+
 Enter in your browser:
-    
+
     http://x.x.x.x:8000 (x.x.x.x - your IP address server)
 
-## 4. Setup Web (Choose only one method: Virtual Host or WSGI)
-
-###1. Virtual Host 
-
-Add file webvirtmgr.conf in conf.d directory (Ubuntu: "/etc/apache2/conf.d" or RedHat,Fedora,CentOS: "/etc/httpd/conf.d"):
-
-    <VirtualHost *:80>
-        ServerAdmin webmaster@dummy-host.example.com
-        ServerName dummy-host.example.com
-
-        SetHandler python-program
-        PythonHandler django.core.handlers.modpython
-        SetEnv DJANGO_SETTINGS_MODULE webvirtmgr.settings
-        PythonOption django.root /webvirtmgr
-        PythonDebug On
-        PythonPath "['/var/www'] + sys.path"
-        
-        ErrorLog ${APACHE_LOG_DIR}/webvirtmgr-error_log
-        CustomLog ${APACHE_LOG_DIR}/webvirtmgr-access_log common
-    </VirtualHost>
-
-Copy the folder and change owner (Ubuntu: "www-data:www-data", Fedora, Redhat, CentOS: "apache:apache"):
-
-    $ sudo cp -r webvirtmgr /var/www/
-    $ sudo chown -R www-data:www-data /var/www/webvirtmgr/
-
-Reload apache:
-    
-    # service apache2 reload
-    
-###2. WSGI
-
-Add file webvirtmgr.conf in conf.d directory (Ubuntu: "/etc/apache2/conf.d" or RedHat,Fedora,CentOS: "/etc/httpd/conf.d"):
-
-    WSGIScriptAlias / /var/www/webvirtmgr/wsgi/django.wsgi
-    Alias /static /var/www/webvirtmgr/polls/static/
-    <Directory /var/www/webvirtmgr/wsgi>
-      Order allow,deny
-      Allow from all
-    </Directory>
+To run the application in production, it is recommended to use [Supervisor](http://supervisord.org/). For instructions on how to set up Gunicorn in conjunction with Supervisor, please take a look at [this](http://www.robgolding.com/blog/2011/11/12/django-in-production-part-1---the-stack/) blog-post.
 
 ## 5. Update
 
