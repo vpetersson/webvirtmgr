@@ -16,13 +16,13 @@ WebVirtMgr is licensed under the Apache Licence, Version 2.0 (http://www.apache.
 
 ### Fedora, RedHat and CentOS
 
-    $ su -c 'yum -y install git'
+    $ su -c 'yum -y install git python-virtinst'
 
 You will also need [pip](http://pypi.python.org/pypi/pip). Depending on your version, these instructions differ.
 
 ### Ubuntu and Debian
 
-    $ sudo apt-get install git python-pip
+    $ sudo apt-get install git python-pip virtinst
 
 ## 2. Installation
 
