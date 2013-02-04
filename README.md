@@ -30,7 +30,7 @@ You will also need [pip](http://pypi.python.org/pypi/pip). Depending on your ver
 
     $ git clone git://github.com/vpetersson/webvirtmgr.git
     $ cd webvirtmgr
-    $ pip install -r requirements.txt
+    $ sudo pip install -r requirements.txt
     $ ./manage.py syncdb
 
 Enter the user information:
@@ -45,7 +45,7 @@ Enter the user information:
 
 Run app for test:
 
-    $ python manage.py run_gunicorn
+    $ python manage.py run_gunicorn 0.0.0.0:8000
 
 Enter in your browser:
 
