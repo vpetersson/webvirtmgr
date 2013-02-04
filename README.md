@@ -1,6 +1,6 @@
 # Appliance WebVirtMgr
 
-** Warning: I started working on simplifying the installation, but gave up as I couldn't get the web-interface to load properly. Assuming you don't get a 500-error, this should work in theory at least. You might be better of using the [original version](https://github.com/retspen/webvirtmgr).**
+**Warning:** I started working on simplifying the installation, but gave up as I couldn't get the web-interface to load properly. Assuming you don't get a 500-error, this should work in theory at least. You might be better of using the [original version](https://github.com/retspen/webvirtmgr).
 
 ## 1. Introduction
 
