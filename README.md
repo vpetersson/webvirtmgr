@@ -1,5 +1,7 @@
 # Appliance WebVirtMgr
 
+** Warning: I started working on simplifying the installation, but gave up as I couldn't get the web-interface to load properly. Assuming you don't get a 500-error, this should work in theory at least. You might be better of using the [original version](https://github.com/retspen/webvirtmgr).**
+
 ## 1. Introduction
 
 WebVirtMgr is a libvirt-based Web interface for managing virtual machines. It allows you to create and configure new domains, and adjust a domain's resource allocation. A VNC viewer over a SSH tunnel presents a full graphical console to the guest domain. KVM is currently the only hypervisor supported.
@@ -22,7 +24,7 @@ You will also need [pip](http://pypi.python.org/pypi/pip). Depending on your ver
 
 ### Ubuntu and Debian
 
-    $ sudo apt-get install git python-pip virtinst
+    $ sudo apt-get install git-core python-pip virtinst
 
 ## 2. Installation
 
